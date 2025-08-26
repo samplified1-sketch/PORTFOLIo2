@@ -32,11 +32,13 @@ window.addEventListener("load", () => {
 });
 
 // Scroll fade effect
-window.addEventListener("scroll", () => {
-  const introText = document.querySelector(".intro-text");
-  const scrollY = window.scrollY;
-  const fadeEnd = window.innerHeight; // fade over one viewport height
-  let opacity = 1 - scrollY / fadeEnd;
-  opacity = Math.max(0, Math.min(1, opacity));
-  introText.style.opacity = opacity;
+window.addEventListener('scroll', () => {
+  const name = document.getElementById('name');
+  const scrollPos = window.scrollY;
+
+  if (scrollPos > window.innerHeight / 3) {
+    name.classList.add('scaled');
+  } else {
+    name.classList.remove('scaled');
+  }
 });
